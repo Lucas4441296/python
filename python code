@@ -1,0 +1,28 @@
+import pandas as pd
+df = pd.read_csv("https://raw.githubusercontent.com/axrd/datasets/master/gdp.csv")
+print(df.head(7))
+print(df.tail(3))
+print(df.shape)
+print(df.dtypes)
+
+df.rename(columns={"Counry": "Country"}, inplace=True)
+print(df.columns)
+print(df["GDP"].max())
+print(df["GDP"].min())
+print(df["GDP"].median())
+print(df["GDP"].std())
+
+my_list = [1, 2, 3, 4, 5]
+print(type(my_list))
+
+#heights = [184, 177, 190, 188, 159, 166]
+weights = [84.5, 81.8, 86.1, 92.2, 69.6, 72.0 ]
+names = ['John', 'Ryan', 'Bobby', 'Pete', 'Esther', 'Jane']
+BMI = []
+person_data = list(zip(names, weights, heights))
+names = ['John', 'Ryan', 'Bobby', 'Pete', 'Esther', 'Jane']
+heights = [184, 177, 190, 188, 159, 166]
+weights = [84.5, 81.8, 86.1, 92.2, 69.6, 72.0]
+
+person_data = list(zip(names, weights, heights))
+print(person_data)
