@@ -25,4 +25,110 @@ heights = [184, 177, 190, 188, 159, 166]
 weights = [84.5, 81.8, 86.1, 92.2, 69.6, 72.0]
 
 person_data = list(zip(names, weights, heights))
+# Import necessary libraries
+import pandas as pd  # Pandas for data manipulation
+import numpy as np   # NumPy for numerical operations
+import random        # Random module for generating dummy values
+
+# Read dataset from a CSV file URL
+df = pd.read_csv("https://raw.githubusercontent.com/axrd/datasets/master/gdp.csv")
+
+# Display basic information about the dataset
+print("First 7 rows of the dataset:")
+print(df.head(7))
+print("\nLast 3 rows of the dataset:")
+print(df.tail(3))
+
+# Display shape and data types of the dataframe
+print("\nShape of the dataset (rows, columns):", df.shape)
+print("\nData types of each column:")
+print(df.dtypes)
+
+# Renaming column with incorrect spelling
+df.rename(columns={"Counry": "Country"}, inplace=True)
+print("\nUpdated column names:")
+print(df.columns)
+
+# Displaying basic statistics of the GDP column
+print("\nGDP Statistics:")
+print("Maximum GDP:", df["GDP"].max())
+print("Minimum GDP:", df["GDP"].min())
+print("Median GDP:", df["GDP"].median())
+print("Standard Deviation of GDP:", df["GDP"].std())
+
+# Create a simple list and check its type
+my_list = [1, 2, 3, 4, 5]
+print("\nType of my_list:", type(my_list))
+
+# Creating a list of heights, weights, and names
+heights = [184, 177, 190, 188, 159, 166]
+weights = [84.5, 81.8, 86.1, 92.2, 69.6, 72.0]
+names = ['John', 'Ryan', 'Bobby', 'Pete', 'Esther', 'Jane']
+
+# Creating an empty list for storing BMI values
+BMI = []
+
+# Zipping names, weights, and heights together into tuples
+person_data = list(zip(names, weights, heights))
+print("\nList of tuples containing (name, weight, height):")
+print(person_data)
+
+# Calculating and storing BMI values
+for person in person_data:
+    name, weight, height = person
+    bmi = weight / ((height / 100) ** 2)  # BMI formula: weight(kg) / height(m)^2
+    BMI.append((name, bmi))
+
+print("\nList of tuples containing (name, BMI):")
+print(BMI)
+
+# Creating a dictionary to store additional information
+dummy_data = {
+    "Countries": ["USA", "Canada", "Germany", "France", "UK"],
+    "GDP": [21.43, 1.84, 4.00, 2.78, 2.63],
+    "Population": [331, 38, 83, 67, 68]
+}
+
+# Creating a DataFrame from the dictionary
+dummy_df = pd.DataFrame(dummy_data)
+print("\nDummy DataFrame:")
+print(dummy_df)
+
+# Adding a new column based on a calculation
+dummy_df["GDP per Capita"] = dummy_df["GDP"] * 1000 / dummy_df["Population"]
+print("\nDummy DataFrame with GDP per Capita:")
+print(dummy_df)
+
+# Generating random GDP values for testing
+test_gdp_values = [random.uniform(1, 10) for _ in range(10)]
+print("\nRandomly generated GDP values:")
+print(test_gdp_values)
+
+# Converting the random GDP values into a NumPy array
+np_gdp_values = np.array(test_gdp_values)
+print("\nNumPy array of GDP values:")
+print(np_gdp_values)
+
+# Computing basic statistics for the NumPy array
+print("\nStatistics for the NumPy GDP array:")
+print("Mean:", np.mean(np_gdp_values))
+print("Median:", np.median(np_gdp_values))
+print("Standard Deviation:", np.std(np_gdp_values))
+
+# Defining an additional useless function for demonstration purposes
+def random_string_generator(length=10):
+    """Generate a random string of given length."""
+    letters = 'abcdefghijklmnopqrstuvwxyz'
+    return ''.join(random.choice(letters) for _ in range(length))
+
+# Generate a random string of length 15
+random_string = random_string_generator(15)
+print("\nGenerated random string:", random_string)
+
+# Another completely redundant loop that does nothing useful
+for i in range(5):
+    print(f"Loop iteration {i + 1}: Doing nothing useful...")
+
+# End of script
+
 print(person_data)
